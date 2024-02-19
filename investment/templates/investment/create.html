@@ -1,0 +1,128 @@
+{% extends 'apps_base.html' %}
+
+{% block title %}Portfolio{% endblock %}
+
+{% block apps_base_title %}Add a Portfolio{% endblock %}
+
+{% block apps_base_content %}
+    <form action="{% url 'create_portfolo' %}" method="post" class="form-fluid">
+        {% csrf_token %}
+        <header class="form-title text-muted">Portfolio Information</header>
+        <div class="container row">
+            <div class="form-group col-md-6">
+                <label for="symbol">Select a Stock</label>
+                <select id="symbol" class="custom-select form-control" name="symbol" required>
+                    <option value="">None</option>
+                        <option value="AAPL">AAPL</option>
+                        <option value="AMZN">AMZN</option>
+                        <option value="TSLA">TSLA</option>
+                        <option value="GOOG">GOOG</option>
+                        <option value="NFLX">NFLX</option>
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="trade_id">Trade ID</label>
+                <input id="trade_id" class="form-control" type="number" name="trade_id" maxlength="40"
+                       readonly required/>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="create-table-date">Date</label>
+                <input id="create-table-date" class="form-control auto-set-to-today" type="date" name="date" required/>
+            </div>
+        </div>
+        <header class="form-title text-muted">Stocks to Invest</header>
+        <div>
+        <div class="container row" id="input-box-0">
+            <div class="form-group col-md-6" id="input-name-0">
+                <label for="create-table-item-name-0">Shares</label>
+                <input id="create-table-item-name-0" name="item_name_0" type="number" class="form-control" maxlength="40"
+                       required>
+            </div>
+            <div class="form-group col-md-6" id="input-change-0">
+                <label for="create-table-item-money-change-0">Price</label>
+                <input id="create-table-item-money-change-0" name="item_money_change_0" type="number"
+                       class="form-control"
+                       step="0.01" readonly required>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="create-receipt-item-total-cost-0">Total Amount</label>
+                <input id="create-receipt-item-total-cost-0" name="total_cost_0" type="number" class="form-control"
+                       min="0" step="0.01"
+                       readonly required>
+            </div>
+        </div>
+        <div id="add-input-box">
+            <script language="JavaScript">
+                var i = 1;
+            </script>
+            <button class="btn btn-primary" style="margin: 0 auto" type="button" onclick="doAdd()">Add</button>
+            <button class="btn btn-danger" style="margin: 0 auto" type="button" onclick="doDelete()">Delete</button>
+          <button class="btn btn-lg btn-primary btn-block" type="submit">Create</button>
+        </div>
+        </div>
+    </form>
+{% endblock %}
+{% block apps_base_scripts %}
+<script>
+     $(document).ready(function () {
+            $("#create-table-item-name-0").change(function () {
+                a = this.value;
+                b = $("#create-table-item-money-change-0").val();
+                c = $("#symbol").val();
+                console.log(c);
+                if(c==='AAPL'){
+                    document.getElementById("create-table-item-money-change-0").value ={{ data.AAPL.close }};
+                    document.getElementById("create-receipt-item-total-cost-0").value = a * {{ data.AAPL.close }};
+                }
+                else if(c==='AMZN'){
+                    document.getElementById("create-table-item-money-change-0").value ={{ data.AMZN.close }};
+                    document.getElementById("create-receipt-item-total-cost-0").value = a * {{ data.AMZN.close }};
+                }
+                else if(c==='TSLA'){
+                    document.getElementById("create-table-item-money-change-0").value ={{ data.TSLA.close }};
+                    document.getElementById("create-receipt-item-total-cost-0").value = a * {{ data.TSLA.close }};
+                }
+                else if(c==='GOOG'){
+                    document.getElementById("create-table-item-money-change-0").value ={{ data.GOOG.close }};
+                    document.getElementById("create-receipt-item-total-cost-0").value = a * {{ data.GOOG.close }};
+                }
+                else if(c==='NFLX'){
+                    document.getElementById("create-table-item-money-change-0").value ={{ data.NFLX.close }};
+                    document.getElementById("create-receipt-item-total-cost-0").value = a * {{ data.NFLX.close }};
+                }
+                
+            });
+
+            
+            $("#symbol").change(function () {
+                c=this.value;
+                if(c==='AAPL'){
+                    document.getElementById("trade_id").value = {{tid}};
+                    document.getElementById("create-table-item-money-change-0").value ={{ data.AAPL.close }};
+                    document.getElementById("create-receipt-item-total-cost-0").value = a * {{ data.AAPL.close }};
+                }
+                else if(c==='AMZN'){
+                    document.getElementById("trade_id").value = {{tid}};
+                    document.getElementById("create-table-item-money-change-0").value ={{ data.AMZN.close }};
+                    document.getElementById("create-receipt-item-total-cost-0").value = a * {{ data.AMZN.close }};
+                }
+                else if(c==='TSLA'){
+                    document.getElementById("trade_id").value = {{tid}};
+                    document.getElementById("create-table-item-money-change-0").value ={{ data.TSLA.close }};
+                    document.getElementById("create-receipt-item-total-cost-0").value = a * {{ data.TSLA.close }};
+                }
+                else if(c==='GOOG'){
+                    document.getElementById("trade_id").value = {{tid}};
+                    document.getElementById("create-table-item-money-change-0").value ={{ data.GOOG.close }};
+                    document.getElementById("create-receipt-item-total-cost-0").value = a * {{ data.GOOG.close }};
+                }
+                else if(c==='NFLX'){
+                    document.getElementById("trade_id").value = {{tid}};
+                    document.getElementById("create-table-item-money-change-0").value ={{ data.NFLX.close }};
+                    document.getElementById("create-receipt-item-total-cost-0").value = a * {{ data.NFLX.close }};
+                }
+            });
+        });
+
+        </script>
+{% endblock %}

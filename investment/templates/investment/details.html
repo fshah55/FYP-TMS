@@ -1,0 +1,55 @@
+{% extends 'apps_base.html' %}
+
+{% block title %}Details of Investments{% endblock %}
+
+{% block apps_base_title %}Details of Investments{% endblock %}
+
+{% block apps_base_content %}
+    <!--startprint-->
+    <div class="table-title">
+        <header>Investments Information</header>
+        <a href="{% url 'export_to_excel' %}" id="export">Export</a>
+    </div>
+    <table class="table table-striped table-bordered table-responsive-md" id="salary-details-table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Stock Symbol</th>
+            <th>Shares</th>
+            <th>Spot Price</th>
+            <th>Total Amount</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{ invest.account }}</td>
+            <td>{{ invest.symbol }}</td>
+            <td>{{ invest.shares }}</td>
+            <td>{{ invest.spot_price }}</td>
+            <td>{{ invest.total_amount }}</td>
+        </tr>
+        </tbody>
+    </table>
+    <!--endprint-->
+
+    <!-- Delete Modal Trigger -->
+    <div class="text-center">
+        <button type="button" class="btn btn-default" onclick=doPrint()>Print</button>
+    </div>
+    <!-- Delete Modal -->
+    
+{% endblock %}
+
+{% block base_scripts %}
+    <script language="javascript" script.src="jquery.js">
+        function doPrint() {
+            var bdhtml = window.document.body.innerHTML;
+            var start = "<!--startprint-->";
+            var end = "<!--endprint-->";
+            var prnhtml = bdhtml.substr(bdhtml.indexOf(start) + 17);
+            var prnhtml = prnhtml.substring(0, prnhtml.indexOf(end));
+            window.document.body.innerHTML = prnhtml;
+            window.print();
+        }
+    </script>
+{% endblock %}

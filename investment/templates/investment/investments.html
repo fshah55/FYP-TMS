@@ -1,0 +1,225 @@
+{% extends 'apps_base.html' %}
+
+{% block title %}Investment Portfolio Management{% endblock %}
+
+{% block apps_base_title %}Investment Portfolio Management{% endblock %}
+
+{% block apps_base_stylesheets %}
+
+{% endblock %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+{% block apps_base_content %}
+{% load static %}
+<div class="container-fluid mt-4">
+    <div class="row card">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Symbol</th>
+                    <th scope="col">Open</th>
+                    <th scope="col">High</th>
+                    <th scope="col">Low</th>
+                    <th scope="col">Close</th>
+                    <th scope="col">Volume</th>
+                    <th scope="col">Dividends</th>
+                    <th scope="col">Stock Split</th>
+                    <th scope="col">Graph</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                    <tr>
+                        <th scope="row"><a href="https://finance.yahoo.com/quote/AAPL?p=AAPL">AAPL</a></th>
+                        <td>{{ data.AAPL.open }}</td>
+                        <td>{{ data.AAPL.high }}</td>
+                        <td>{{ data.AAPL.low }}</td>
+                        <td>{{ data.AAPL.close }}</td>
+                        <td>{{ data.AAPL.volume }}</td>
+                        <td>{{ data.AAPL.div }}</td>
+                        <td>{{ data.AAPL.stk_spl }}</td>
+                        <td> <img src="{% static "img/aaapl.png" %}" alt="" width="100" height="40"> </td>
+                    </tr>
+            </tbody>
+            
+        </table>
+    </div>
+</div>
+
+<div class="container-fluid mt-4">
+    <div class="row card">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Symbol</th>
+                    <th scope="col">Open</th>
+                    <th scope="col">High</th>
+                    <th scope="col">Low</th>
+                    <th scope="col">Close</th>
+                    <th scope="col">Volume</th>
+                    <th scope="col">Dividends</th>
+                    <th scope="col">Stock Split</th>
+                    <th scope="col">Graph</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <tr>
+                        <th scope="row"><a href="https://finance.yahoo.com/quote/AMZN?p=AMZN&.tsrc=fin-srch">AMZN</a></th>
+                        <td>{{ data.AMZN.open }}</td>
+                        <td>{{ data.AMZN.high }}</td>
+                        <td>{{ data.AMZN.low }}</td>
+                        <td>{{ data.AMZN.close }}</td>
+                        <td>{{ data.AMZN.volume }}</td>
+                        <td>{{ data.AMZN.div }}</td>
+                        <td>{{ data.AMZN.stk_spl }}</td>
+                        <td> <img src="{% static "img/aaapl.png" %}" alt="" width="100" height="40"> </td>
+                    </tr>
+            </tbody>
+            
+        </table>
+    </div>
+</div>
+
+<div class="container-fluid mt-4">
+    <div class="row card">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Symbol</th>
+                    <th scope="col">Open</th>
+                    <th scope="col">High</th>
+                    <th scope="col">Low</th>
+                    <th scope="col">Close</th>
+                    <th scope="col">Volume</th>
+                    <th scope="col">Dividends</th>
+                    <th scope="col">Stock Split</th>
+                    <th scope="col">Graph</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <tr>
+                        <th scope="row"><a href="https://finance.yahoo.com/quote/TSLA?p=TSLA&.tsrc=fin-srch">TSLA</a></th>
+                        <td>{{ data.TSLA.open }}</td>
+                        <td>{{ data.TSLA.high }}</td>
+                        <td>{{ data.TSLA.low }}</td>
+                        <td>{{ data.TSLA.close }}</td>
+                        <td>{{ data.TSLA.volume }}</td>
+                        <td>{{ data.TSLA.div }}</td>
+                        <td>{{ data.TSLA.stk_spl }}</td>
+                        <td> <img src="{% static "img/aaapl.png" %}" alt="" width="100" height="40"> </td>
+                    </tr>
+            </tbody>
+            
+        </table>
+    </div>
+</div>
+
+<div class="container-fluid mt-4">
+    <div class="row card">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Symbol</th>
+                    <th scope="col">Open</th>
+                    <th scope="col">High</th>
+                    <th scope="col">Low</th>
+                    <th scope="col">Close</th>
+                    <th scope="col">Volume</th>
+                    <th scope="col">Dividends</th>
+                    <th scope="col">Stock Split</th>
+                    <th scope="col">Graph</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <tr>
+                        <th scope="row"><a href="https://finance.yahoo.com/quote/GOOG?p=GOOG&ncid=yahooproperties_peoplealso_km0o32z3jzm">GOOG</a></th>
+                        <td>{{ data.GOOG.open }}</td>
+                        <td>{{ data.GOOG.high }}</td>
+                        <td>{{ data.GOOG.low }}</td>
+                        <td>{{ data.GOOG.close }}</td>
+                        <td>{{ data.GOOG.volume }}</td>
+                        <td>{{ data.GOOG.div }}</td>
+                        <td>{{ data.GOOG.stk_spl }}</td>
+                        <td> <img src="{% static "img/aaapl.png" %}" alt="" width="100" height="40"> </td>
+                    </tr>
+            </tbody>
+            
+        </table>
+    </div>
+</div>
+
+<div class="container-fluid mt-4">
+    <div class="row card">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Symbol</th>
+                    <th scope="col">Open</th>
+                    <th scope="col">High</th>
+                    <th scope="col">Low</th>
+                    <th scope="col">Close</th>
+                    <th scope="col">Volume</th>
+                    <th scope="col">Dividends</th>
+                    <th scope="col">Stock Split</th>
+                    <th scope="col">Graph</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <tr>
+                        <th scope="row"><a href="https://finance.yahoo.com/quote/NFLX?p=NFLX&.tsrc=fin-srch">NFLX</a></th>
+                        <td>{{ data.NFLX.open }}</td>
+                        <td>{{ data.NFLX.high }}</td>
+                        <td>{{ data.NFLX.low }}</td>
+                        <td>{{ data.NFLX.close }}</td>
+                        <td>{{ data.NFLX.volume }}</td>
+                        <td>{{ data.NFLX.div }}</td>
+                        <td>{{ data.NFLX.stk_spl }}</td>
+                        <td> <img src="{% static "img/aaapl.png" %}" alt="" width="100" height="40"> </td>
+                    </tr>
+            </tbody>
+            
+        </table>
+    </div>
+</div>
+<div class="pt-5 ps-2">
+    <h2>Investments
+    </h2>
+</div>
+
+<!-- Portfolio Area Starts-->
+<div class="pt-2 table-title">
+    <header>Created Portfolio Records</header>
+    <a href="{% url 'create_portfolo' %}">Add a new Portfolio record</a>
+</div>
+  <!-- Salary Starts-->
+  <div>
+    <table class="table table-striped table-bordered">
+      <thead>
+      <tr>
+          <th>TID</th>
+          <th>Stock Symbol</th>
+          <th>Shares</th>
+          <th>Spot Price</th>
+          <th>Total Amount</th>
+          <th>Date</th>
+      </tr>
+      </thead>
+      <tbody>
+        {% for port in portfolio %}
+           <tr>
+               <td><a href="{% url 'invest_details' invest_id=port.id %}">{{ port.id}}</a>
+               </td>
+               <td>{{ port.symbol }}</td>
+              <td>{{ port.shares }}</td>
+              <td>{{ port.spot_price }}</td>
+              <td>{{ port.total_amount }}</td>
+              <td>{{ port.date }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+  </table>
+</div>
+
+<!-- Portfolio Area Ends-->
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'apps_base.html' %}
+
+{% block title %}Join in a company{% endblock %}
+
+{% block apps_base_title %}Join in a company{% endblock %}
+
+{% block apps_base_content %}
+    <p class="text-muted">Input UUID of the company you are going to join in:</p>
+    <form class="form-block" action="{% url 'join_company' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group text-left">
+            <label for="unique-id">UUID:</label>
+            <input id="unique-id" class="form-control" type="text" name="unique_id" maxlength="36" required/>
+            <label for="dropdown" >Select a Package:</label>
+            <select name="pkg" id="dropdown" class="form-control">
+                <option value="1">1 Yr.  - 5% interest </option>
+                <option value="2">2 Yr.  - 10% interest </option>
+                <option value="3">3 Yr.  - 15% interest </option>
+                <option value="4">5 Yr.  - 20% interest </option>
+            </select>
+            <label for="dropdown" >Designations:</label>
+            <select id="dropdown" class="form-control">
+                <option value="1">Self Employed</option>
+                <option value="2">Employer</option>
+                <option value="3">Student</option>
+                <option value="4">Freelancer</option>
+            </select>
+            <label for="amount">Amount:</label>
+            <input id="amount" class="form-control" type="number" name="amount"  required/>
+        
+        </div>
+        
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Join</button>
+    </form>
+{% endblock %}
